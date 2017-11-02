@@ -30,6 +30,12 @@
             _session = [[NFCNDEFReaderSession alloc] initWithDelegate:self queue:nil invalidateAfterFirstRead:YES];
             
             [_session beginSession];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"错误" message:@"设备不支持" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            }];
+            [alertController addAction:cancel];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
 }
 
